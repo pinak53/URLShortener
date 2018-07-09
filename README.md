@@ -4,8 +4,8 @@ This web service provides a mechanism for shortening URLs and retrieving them ba
 
 ### Endpoints
 The following endpoint is used to retrieve the long url for which a short url has been generated. The short url contains a key as the path which can be used to retrieve the long url. This key is passed as the param to the GET request. 
-Upon successful retrieval of the long url the request would be redirected appropriately.
 
+Upon successful retrieval of the long url the request would be redirected appropriately.
 #### GET /URLShortener/rest/{key}
 
 
@@ -15,7 +15,15 @@ The following endpoint is used to generate the short url for a given long url.
 You can pass the long url as part of the body in JSON format.
 ```
 {
-  "url": "www.google.com"
+  "url": "www.amazon.com"
+}
+```
+
+This is what the response body would look like 
+```
+{
+  "shortUrl":"http://goldbely.us/xMBK1PkKR",
+  "longUrl":"www.amazon.com"
 }
 ```
 Optionally, you can also provide the slug as part of the body as shown below.
@@ -24,6 +32,13 @@ Optionally, you can also provide the slug as part of the body as shown below.
 {
   "url": "www.google.com",
   "slug": "123456789"  
+}
+```
+This is what the response body would look like in this case
+```
+{
+  "shortUrl":"http://goldbely.us/123456789",
+  "longUrl":"www.google.com"
 }
 ```
 
